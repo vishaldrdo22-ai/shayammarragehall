@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>श्री श्याम पैलेस – Krishna Theme Marriage & Party Hall, बभनान</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="श्री श्याम पैलेस, जनता इंटर कॉलेज के पीछे, केवटहिया, बभनान – गोण्डा। भव्य शादी–विवाह, रिसेप्शन, बर्थ–डे पार्टी, सांस्कृतिक कार्यक्रम एवं प्रीमियम इवेंट्स के लिए आधुनिक मैरिज हॉल।">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f5fbff;
+      --primary: #1572a1;               /* Krishna blue */
+      --primary-soft: rgba(21,114,161,0.10);
+      --accent: #2c9c76;                /* Peacock green */
+      --text: #1f2430;
+      --muted: #70798a;
+      --card-bg: #ffffff;
+      --border-soft: rgba(0,0,0,0.08);
+      --shadow-soft: 0 18px 45px rgba(15,40,80,0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, #fdfdff 0, transparent 55%),
+        radial-gradient(circle at top right, #f2fbff 0, transparent 55%),
+        linear-gradient(180deg, #f8fbff 0%, #fdf9f3 55%, #fff9f9 100%);
+      color: var(--text);
+      scroll-behavior: smooth;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* Big soft feather in background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -40px;
+      background: url("/home/user/Downloads/shayam/shayam.png") center 40% / 450px auto no-repeat;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: -2;
+      filter: saturate(1.1);
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* floating feathers (animated top->bottom) */
+    .feather-floating {
+      position: fixed;
+      pointer-events: none;
+      opacity: 0.35;
+      z-index: -1;
+    }
+    .feather-floating img {
+      width: 140px;
+      height: auto;
+      filter: drop-shadow(0 8px 18px rgba(15,40,80,0.25));
+    }
+    @keyframes floatFeather {
+      0%   { transform: translate3d(0,-120%,0) rotate(-4deg); }
+      100% { transform: translate3d(0,120%,0) rotate(6deg); }
+    }
+    .feather-1 {
+      left: 5%;
+      top: -20%;
+      animation: floatFeather 38s linear infinite;
+    }
+    .feather-2 {
+      right: 6%;
+      top: -30%;
+      animation: floatFeather 48s linear infinite;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 99;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(255,255,255,0.92), rgba(255,255,255,0.78));
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 18px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .logo-mark { display: flex; align-items: center; gap: 10px; }
+    .logo-circle {
+      width: 32px; height: 32px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.08);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 600;
+      background: radial-gradient(circle at top, #f8f0d0, #f0c86d);
+      color: #503100;
+    }
+    .logo-text-main {
+      font-family: "Playfair Display", serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.4px;
+      color: #12304a;
+    }
+    .logo-text-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 18px;
+      font-size: 0.86rem;
+    }
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+      color: #1d3148;
+    }
+    .nav-links a::after {
+      content:"";
+      position:absolute;
+      left:0; bottom:0;
+      width:0; height:2px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width .25s ease;
+    }
+    .nav-links a:hover::after { width:100%; }
+
+    .nav-cta {
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: none;
+      background: linear-gradient(120deg, var(--primary), var(--accent));
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(21,114,161,0.35);
+    }
+    .nav-cta:hover { transform: translateY(-1px); }
+
+    /* Hero */
+    .hero {
+      padding-top: 96px;
+      padding-bottom: 70px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: var(--primary);
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 10px;
+    }
+    .eyebrow::before {
+      content:"";
+      width:26px; height:1px;
+      background: linear-gradient(90deg, transparent, var(--primary));
+    }
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: 2.6rem;
+      line-height: 1.2;
+      margin-bottom: 8px;
+      color: #0d2740;
+    }
+    .hero-title span {
+      background: linear-gradient(120deg, #1572a1, #2c9c76);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 520px;
+    }
+    .hero-pills {
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin:18px 0 20px;
+      font-size:0.76rem;
+    }
+    .pill {
+      padding:6px 11px;
+      border-radius:999px;
+      border:1px solid rgba(21,114,161,0.26);
+      background: rgba(240,249,255,0.95);
+      color:#17415f;
+    }
+    .hero-cta-row {
+      display:flex; flex-wrap:wrap; gap:12px;
+      align-items:center;
+      margin-top:8px;
+    }
+    .btn-primary, .btn-ghost {
+      display:inline-flex;
+      align-items:center; justify-content:center;
+      gap:8px;
+      border-radius:999px;
+      padding:9px 18px;
+      font-size:0.86rem;
+      cursor:pointer;
+      border:none;
+      transition: background .3s, transform .2s, box-shadow .3s;
+    }
+    .btn-primary {
+      background: linear-gradient(130deg, var(--primary), var(--accent));
+      color:#fff;
+      box-shadow:0 12px 26px rgba(21,114,161,0.4);
+    }
+    .btn-primary:hover { transform:translateY(-1px); }
+    .btn-ghost {
+      border:1px solid rgba(21,114,161,0.35);
+      background: #ffffffd9;
+      color:#17415f;
+    }
+    .btn-ghost:hover { background:#f4fbff; }
+    .hero-note {
+      font-size:0.78rem;
+      color:var(--muted);
+      margin-top:8px;
+    }
+
+    .hero-card {
+      border-radius:22px;
+      background:#ffffffd9;
+      box-shadow: var(--shadow-soft);
+      overflow:hidden;
+      border:1px solid var(--border-soft);
+    }
+    .hero-photo-wrap {
+      position:relative;
+      overflow:hidden;
+      height:260px;
+    }
+    .hero-photo-wrap::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(255,255,255,0.98) 6%, transparent 55%);
+    }
+    .hero-photo {
+      width:100%; height:100%;
+      object-fit:cover;
+      transform:scale(1.05);
+    }
+    .hero-badge {
+      position:absolute;
+      left:16px; bottom:16px;
+      padding:6px 12px;
+      border-radius:999px;
+      background:#ffffffdf;
+      border:1px solid rgba(0,0,0,0.06);
+      font-size:0.75rem;
+      color:#17415f;
+    }
+    .hero-body { padding:16px 18px 16px; }
+    .hero-body h3 {
+      font-size:1.05rem;
+      margin-bottom:4px;
+      color:#12314a;
+    }
+    .hero-body > div { font-size:0.84rem; color:var(--muted); }
+    .hero-meta {
+      display:flex; justify-content:space-between;
+      font-size:0.76rem;
+      color:var(--muted);
+      margin-top:8px;
+      flex-wrap:wrap; gap:4px;
+    }
+    .badge-soft {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:4px 9px;
+      border-radius:999px;
+      background:var(--primary-soft);
+      color:#0c3a55;
+      border:1px solid rgba(21,114,161,0.28);
+      font-size:0.72rem;
+    }
+
+    /* Section base */
+    section { padding:70px 0 60px; }
+    .section-header { text-align:center; margin-bottom:32px; }
+    .section-kicker {
+      text-transform:uppercase;
+      letter-spacing:3px;
+      font-size:0.7rem;
+      color:var(--primary);
+      margin-bottom:6px;
+    }
+    .section-title {
+      font-family:"Playfair Display",serif;
+      font-size:1.9rem;
+      margin-bottom:6px;
+      color:#0f2c45;
+    }
+    .section-sub {
+      max-width:620px; margin:0 auto;
+      font-size:0.9rem;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    /* Highlights */
+    .highlight-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+    }
+    .h-card {
+      padding:16px 15px 14px;
+      border-radius:16px;
+      background:#ffffffc9;
+      border:1px solid var(--border-soft);
+      box-shadow:0 12px 30px rgba(15,40,80,0.08);
+      font-size:0.86rem;
+    }
+    .h-label {
+      font-size:0.78rem;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:2px;
+    }
+    .h-main {
+      font-size:1rem;
+      font-weight:600;
+      margin-top:2px;
+      margin-bottom:4px;
+      color:#0d3858;
+    }
+
+    /* Services */
+    .card-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:18px;
+    }
+    .svc-card {
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:18px 16px 16px;
+      border:1px solid var(--border-soft);
+      box-shadow:0 14px 26px rgba(15,40,80,0.1);
+      font-size:0.88rem;
+      line-height:1.6;
+      position:relative;
+      overflow:hidden;
+    }
+    .svc-card::before {
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background:
+        radial-gradient(circle at top, rgba(21,114,161,0.08), transparent 55%),
+        radial-gradient(circle at bottom, rgba(44,156,118,0.09), transparent 55%);
+      opacity:0;
+      transition:opacity .3s ease;
+    }
+    .svc-card:hover::before { opacity:1; }
+    .svc-icon {
+      width:32px; height:32px;
+      border-radius:999px;
+      background:linear-gradient(135deg,#2c9c76,#1572a1);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1rem;
+      margin-bottom:8px;
+      color:#fff;
+      box-shadow:0 8px 18px rgba(21,114,161,0.4);
+      position:relative; z-index:1;
+    }
+    .svc-title {
+      font-weight:600;
+      margin-bottom:4px;
+      color:#10324c;
+      position:relative; z-index:1;
+    }
+    .svc-text {
+      color:var(--muted);
+      position:relative; z-index:1;
+    }
+
+    /* Packages */
+    .package-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:20px;
+    }
+    .pkg-card {
+      background:linear-gradient(145deg,#ffffff,#f5fbff);
+      border-radius:22px;
+      padding:18px 18px 18px;
+      border:1px solid rgba(21,114,161,0.18);
+      box-shadow:var(--shadow-soft);
+      font-size:0.9rem;
+    }
+    .pkg-label {
+      font-size:0.8rem;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      color:var(--muted);
+      margin-bottom:2px;
+    }
+    .pkg-name {
+      font-size:1.15rem;
+      font-weight:600;
+      margin-bottom:4px;
+      color:#10324c;
+    }
+    .pkg-price {
+      font-size:0.92rem;
+      color:#1d825e;
+      margin-bottom:10px;
+    }
+    .pkg-list { list-style:none; font-size:0.85rem; color:var(--muted); margin-bottom:10px; }
+    .pkg-list li::before { content:"• "; color:var(--primary); }
+
+    /* Gallery */
+    .gallery-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:14px;
+    }
+    .g-item {
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid var(--border-soft);
+      position:relative;
+      background:#fff;
+      box-shadow:0 10px 22px rgba(15,40,80,0.12);
+    }
+    .g-item img {
+      width:100%; height:180px; object-fit:cover;
+      transition:transform .5s ease, filter .5s ease;
+    }
+    .g-item:hover img { transform:scale(1.03); filter:brightness(1.07); }
+    .g-caption {
+      position:absolute;
+      left:10px; bottom:10px;
+      padding:4px 9px;
+      border-radius:999px;
+      font-size:0.7rem;
+      background:rgba(0,0,0,0.5);
+      color:#fff;
+    }
+
+    /* Testimonial */
+    .testimonial-wrap {
+      border-radius:22px;
+      padding:22px 18px 18px;
+      border:1px solid var(--border-soft);
+      background:linear-gradient(135deg,#ffffff,#f2fbff);
+      box-shadow:var(--shadow-soft);
+    }
+    .t-quote {
+      font-style:italic;
+      font-size:0.88rem;
+      line-height:1.8;
+      color:#263244;
+    }
+    .t-meta {
+      margin-top:10px;
+      font-size:0.8rem;
+      color:var(--muted);
+    }
+
+    /* Contact */
+    .contact-grid {
+      display:grid;
+      grid-template-columns:1.1fr 1fr;
+      gap:26px;
+    }
+    .contact-card {
+      padding:18px 18px 16px;
+      border-radius:20px;
+      border:1px solid var(--border-soft);
+      background:#ffffff;
+      box-shadow:var(--shadow-soft);
+      font-size:0.9rem;
+    }
+    .contact-lines p { margin-bottom:5px; color:var(--muted); }
+    .phone-block span {
+      display:block;
+      margin-top:2px;
+      font-size:0.96rem;
+      color:#0f2c45;
+    }
+    .small-label {
+      font-size:0.74rem;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:2px;
+    }
+    .form {
+      display:grid; gap:10px; font-size:0.85rem;
+    }
+    .form label { display:block; margin-bottom:3px; color:var(--muted); }
+    .form input, .form textarea {
+      width:100%;
+      border-radius:12px;
+      border:1px solid rgba(0,0,0,0.1);
+      background:#f7fbff;
+      color:#222;
+      padding:8px 10px;
+      font-family:inherit;
+      font-size:0.85rem;
+      outline:none;
+    }
+    .form textarea { resize:vertical; min-height:80px; }
+    .form input:focus, .form textarea:focus {
+      border-color:var(--primary);
+      box-shadow:0 0 0 1px rgba(21,114,161,0.25);
+      background:#ffffff;
+    }
+
+    footer {
+      border-top:1px solid rgba(0,0,0,0.05);
+      padding:18px 0 16px;
+      text-align:center;
+      font-size:0.78rem;
+      color:var(--muted);
+      background:#ffffffb8;
+      margin-top:20px;
+    }
+    .footer-links {
+      display:flex; justify-content:center; gap:16px;
+      margin-top:6px;
+      font-size:0.78rem;
+    }
+
+    /* Scroll to top */
+    .scroll-top {
+      position:fixed;
+      right:16px; bottom:16px;
+      width:34px; height:34px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      border:none;
+      display:flex; align-items:center; justify-content:center;
+      font-size:0.9rem;
+      cursor:pointer;
+      opacity:0; pointer-events:none;
+      transition:opacity .3s ease, transform .3s ease;
+      color:#fff;
+      box-shadow:0 10px 22px rgba(15,40,80,0.3);
+      z-index:100;
+    }
+    .scroll-top.visible { opacity:1; pointer-events:auto; transform:translateY(0); }
+
+    /* Responsive */
+    @media (max-width:880px){
+      .hero-grid { grid-template-columns:1fr; }
+      .hero { padding-top:100px; }
+      .contact-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width:720px){
+      .nav-links { display:none; }  /* simple mobile nav */
+      .hero-title { font-size:2.1rem; }
+    }
+    @media (max-width:480px){
+      section { padding:60px 0 50px; }
+      .section-title { font-size:1.7rem; }
+      .feather-floating img { width:110px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- floating feathers -->
+<div class="feather-floating feather-1">
+  <!-- 🖼️ use same image or another feather file -->
+  <img src="krishna-feather.png" alt="Krishna peacock feather">
+</div>
+<div class="feather-floating feather-2">
+  <img src="krishna-feather.png" alt="Krishna peacock feather">
+</div>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-inner">
+    <div class="logo-mark">
+      <div class="logo-circle">SS</div>
+      <div>
+        <div class="logo-text-main">Shree Shyam Palace</div>
+        <div class="logo-text-sub">Marriage &amp; Party Hall • Babhnan</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Events</a>
+      <a href="#packages">Packages</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cta" href="https://wa.me/918303615915" target="_blank" rel="noopener noreferrer">WhatsApp Booking</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Premium Marriage Venue</div>
+      <h1 class="hero-title">
+        <span>श्री श्याम पैलेस</span><br>
+        जहाँ हर रस्म बन जाए यादगार।
+      </h1>
+      <p class="hero-sub">
+        जनता इंटर कॉलेज के पीछे, केवटहिया, बभनान – गोण्डा स्थित हमारा भव्य मैरिज हॉल
+        शादी–विवाह, रिसेप्शन, बर्थ–डे पार्टी, सांस्कृतिक कार्यक्रम और कॉर्पोरेट
+        इवेंट्स के लिए आधुनिक सुविधाओं के साथ उपलब्ध है।
+      </p>
+
+      <div class="hero-pills">
+        <span class="pill">शादी–विवाह &amp; रिसेप्शन</span>
+        <span class="pill">बर्थ–डे &amp; रिंग सेरेमनी</span>
+        <span class="pill">सांस्कृतिक / धार्मिक कार्यक्रम</span>
+        <span class="pill">कस्टम कृष्णा / मोरपंख थीम डेकोरेशन*</span>
+      </div>
+
+      <div class="hero-cta-row">
+        <a class="btn-primary" href="tel:918303615915">📞 अभी बुकिंग के लिए कॉल करें</a>
+        <a class="btn-ghost" href="#gallery">देखें: हॉल की झलक</a>
+      </div>
+      <p class="hero-note">
+        *थीम डेकोरेशन वास्तविक पैकेज के अनुसार कस्टमाइज की जाएगी।
+      </p>
+    </div>
+
+    <aside class="hero-card">
+      <div class="hero-photo-wrap">
+        <!-- 🔁 Replace "hero.jpg" with your own hall photo filename or URL -->
+        <img src="/home/user/Downloads/shayam/hero.png" alt="Shree Shyam Palace Marriage Hall" class="hero-photo">
+        <div class="hero-badge">Celebrations blessed with Krishna’s grace</div>
+      </div>
+      <div class="hero-body">
+        <h3>जनता इंटर कॉलेज के पीछे, केवटहिया, बभनान – गोण्डा</h3>
+        <div>शांत वातावरण, आसान पहुँच और मेहमानों के लिए सुविधाजनक लोकेशन।</div>
+        <div class="hero-meta">
+          <span class="badge-soft">👥 Capacity: लगभग 200 से 1000 मेहमान</span>
+          <span></span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ABOUT / HIGHLIGHTS -->
+<section id="about">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">Why Shree Shyam Palace</div>
+      <h2 class="section-title">आपके हर शुभ अवसर के लिए एक ही परफेक्ट स्थान</h2>
+      <p class="section-sub">
+        परिवार, दोस्तों और मेहमानों के साथ आपके जीवन के सबसे अनमोल पलों को
+        हल्के, सुकून भरे कृष्णा–थीम वातावरण में सेलिब्रेट करने के लिए
+        श्री श्याम पैलेस को डिजाइन किया गया है।
+      </p>
+    </div>
+
+    <div class="highlight-grid">
+      <article class="h-card">
+        <div class="h-label">Location</div>
+        <div class="h-main">केंद्र में, फिर भी भीड़–भाड़ से दूर</div>
+        <p>जनता इंटर कॉलेज के पीछे, केवटहिया, बभनान – गोण्डा; मेहमानों के लिए आसानी से खोजने योग्य, शांत और सुरक्षित इलाका।</p>
+      </article>
+      <article class="h-card">
+        <div class="h-label">Experience</div>
+        <div class="h-main">कई सफल विवाह एवं कार्यक्रम</div>
+        <p>स्थानीय परिवारों द्वारा भरोसेमंद, जहाँ हर फ़ंक्शन की प्लानिंग व्यक्तिगत रूप से की जाती है।</p>
+      </article>
+      <article class="h-card">
+        <div class="h-label">Flexibility</div>
+        <div class="h-main">आपके बजट के अनुसार पैकेज</div>
+        <p>सिंपल हॉल बुकिंग से फुल–सर्विस डेकोरेशन और कैटरिंग तक – आप जो चाहें, हम उसी हिसाब से पैकेज बनाते हैं।</p>
+      </article>
+      <article class="h-card">
+        <div class="h-label">Theme</div>
+        <div class="h-main">Krishna &amp; Peacock Feather Vibes</div>
+        <p>हल्का नीला–हरा कलर पैलेट, मोरपंख–इंस्पायर्ड सजावट और दिव्य वातावरण के साथ अनोखा अनुभव।</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">Events We Host</div>
+      <h2 class="section-title">किस तरह के आयोजन कर सकते हैं?</h2>
+      <p class="section-sub">
+        छोटे से लेकर बड़े – हर तरह के सामाजिक, धार्मिक और कॉर्पोरेट कार्यक्रमों के लिए
+        हमारा हॉल पूरी तैयारी के साथ उपलब्ध है।
+      </p>
+    </div>
+
+    <div class="card-grid">
+      <article class="svc-card">
+        <div class="svc-icon">💍</div>
+        <div class="svc-title">शादी–विवाह एवं रिसेप्शन</div>
+        <p class="svc-text">
+          पारंपरिक से मॉडर्न थीम तक – स्टेज, मंडप, वर–वधू एंट्री, फोटो कॉर्नर और बैठने की
+          आकर्षक व्यवस्था के साथ भव्य समारोह।
+        </p>
+      </article>
+
+      <article class="svc-card">
+        <div class="svc-icon">🎉</div>
+        <div class="svc-title">बर्थ–डे &amp; एनिवर्सरी पार्टी</div>
+        <p class="svc-text">
+          बच्चों और बड़ों की जन्मदिन एवं सालगिरह पार्टियों के लिए रंगीन सजावट, केक
+          कटिंग स्पॉट और म्यूज़िक के साथ फ्रेंडली माहौल।
+        </p>
+      </article>
+
+      <article class="svc-card">
+        <div class="svc-icon">🎭</div>
+        <div class="svc-title">सांस्कृतिक एवं धार्मिक कार्यक्रम</div>
+        <p class="svc-text">
+          कीर्तन, जागरण, सांस्कृतिक संध्या, सम्मान समारोह या समाजिक मीटिंग्स – मंच,
+          साउंड और बैठने की समुचित व्यवस्था।
+        </p>
+      </article>
+
+      <article class="svc-card">
+        <div class="svc-icon">🏛</div>
+        <div class="svc-title">मीटिंग, सेमिनार &amp; फैमिली गेट–टुगेदर</div>
+        <p class="svc-text">
+          कॉर्पोरेट प्रोग्राम, स्कूल/कॉलेज के छोटे फ़ंक्शन्स या फैमिली गेट–टुगेदर
+          के लिए शांत और क्लासिक सेटअप।
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">Indicative Packages</div>
+      <h2 class="section-title">अपने बजट के अनुसार चुनें पैकेज</h2>
+      <p class="section-sub">
+        नीचे दिए गए पैकेज केवल सुझाव हैं। आप अपनी ज़रूरत और मेहमानों की संख्या के अनुसार
+        डिटेल पैकेज के लिए हमसे सीधे बात कर सकते हैं।
+      </p>
+    </div>
+
+    <div class="package-grid">
+      <article class="pkg-card">
+        <div class="pkg-label">Starter</div>
+        <div class="pkg-name">Basic Hall Package</div>
+        <div class="pkg-price">न्यूनतम दर से शुरू*</div>
+        <ul class="pkg-list">
+          <li>हॉल बुकिंग (4–5 घंटे)</li>
+          <li>बेसिक चेयर–टेबल अरेंजमेंट</li>
+          <li>स्टेज प्लेटफॉर्म</li>
+          <li>साफ–सफाई एवं बेसिक लाइटिंग</li>
+        </ul>
+        <div style="font-size:0.8rem;color:var(--muted);">*असली रेट और समय आप अपनी सुविधा अनुसार लिखें।</div>
+      </article>
+
+      <article class="pkg-card">
+        <div class="pkg-label">Popular</div>
+        <div class="pkg-name">Wedding Celebration</div>
+        <div class="pkg-price">पूरे दिन/रात के लिए कस्टम पैकेज</div>
+        <ul class="pkg-list">
+          <li>फुल–डे हॉल बुकिंग</li>
+          <li>डेकोरेशन (स्टेज + एंट्रेंस + फोटो कॉर्नर)</li>
+          <li>साउंड सिस्टम (यदि उपलब्ध हो तो)</li>
+          <li>डाइनिंग एरिया अरेंजमेंट</li>
+        </ul>
+        <div style="font-size:0.8rem;color:var(--muted);">
+          पूछताछ पर मेनू, सजावट और अतिरिक्त सुविधाएँ शामिल की जा सकती हैं।
+        </div>
+      </article>
+
+      <article class="pkg-card">
+        <div class="pkg-label">Premium</div>
+        <div class="pkg-name">Signature Events</div>
+        <div class="pkg-price">पूरी तरह कस्टम अनुभव</div>
+        <ul class="pkg-list">
+          <li>डिज़ाइन–बेस्ड थीम डेकोरेशन (Krishna / Peacock आदि)</li>
+          <li>विशेष वीआईपी सीटिंग / स्टेज सेटअप</li>
+          <li>क्लाइंट की आवश्यकताओं के अनुसार अतिरिक्त सर्विस</li>
+          <li>समर्पित ऑन–ग्राउंड कोऑर्डिनेशन</li>
+        </ul>
+        <div style="font-size:0.8rem;color:var(--muted);">
+          अधिक जानकारी के लिए सीधे कॉल या व्हॉट्सऐप करें।
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">Gallery</div>
+      <h2 class="section-title">हॉल और सजावट की एक झलक</h2>
+      <p class="section-sub">
+        नीचे दी गई तस्वीरों की जगह आप अपने फ़ंक्शन्स और सजावट की वास्तविक फ़ोटोज़ लगा सकते हैं।
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <!-- Replace hall1.jpg, hall2.jpg etc. with your real images -->
+      <figure class="g-item">
+        <img src="/home/user/Downloads/shayam/hall1.png" alt="Stage Decoration at Shree Shyam Palace">
+        <figcaption class="g-caption">Stage &amp; Lighting</figcaption>
+      </figure>
+
+      <figure class="g-item">
+        <img src="/home/user/Downloads/shayam/hall2.png" alt="Dining Area at Shree Shyam Palace">
+        <figcaption class="g-caption">Dining Arrangement</figcaption>
+      </figure>
+
+      <figure class="g-item">
+        <img src="/home/user/Downloads/shayam/hall3.png" alt="Entrance Decoration at Shree Shyam Palace">
+        <figcaption class="g-caption">Entrance Decor</figcaption>
+      </figure>
+
+      <figure class="g-item">
+        <img src="/home/user/Downloads/shayam/hall4.png" alt="Family Celebration at Shree Shyam Palace">
+        <figcaption class="g-caption">Family Celebrations</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">What Guests Say</div>
+      <h2 class="section-title">मेहमानों की राय</h2>
+    </div>
+
+    <div class="testimonial-wrap">
+      <p class="t-quote">
+        “हमारी बेटी की शादी श्री श्याम पैलेस में हुई और पूरा अनुभव बहुत ही शानदार रहा।
+        सजावट, हॉल की साफ–सफाई, स्टाफ का व्यवहार और पार्किंग – सबकुछ बेहतरीन था।
+        गाँव के पास ऐसा प्रीमियम, कृष्णा–थीम हॉल मिलना हमारे लिए बड़ी बात थी।”
+      </p>
+      <div class="t-meta">
+       <!-- – एक संतुष्ट परिवार, बभनान क्षेत्र से<br>
+        <span style="font-size:0.75rem;">(यहाँ आप असली ग्राहकों की छोटी–छोटी टेस्टिमोनियल लाइनें जोड़ सकते हैं) --></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">Bookings &amp; Contact</div>
+      <h2 class="section-title">बुकिंग के लिए हमसे संपर्क करें</h2>
+      <p class="section-sub">
+        डेट, पैकेज और विशेष आवश्यकताओं के लिए सीधे कॉल या व्हॉट्सऐप करें।
+        आप चाहें तो नीचे दिए फॉर्म के माध्यम से भी अपनी डिटेल भेज सकते हैं।
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="small-label">Contact Details</div>
+        <h3 style="margin:4px 0 6px;">प्रो. उज्जवल गुप्ता – बुकिंग इंचार्ज</h3>
+        <div class="contact-lines">
+          <div class="phone-block">
+            <p>📞 मोबाइल नंबर:</p>
+            <span>8303615915</span>
+            <span>9919712054</span>
+            <span>9984843798</span>
+          </div>
+
+          <p style="margin-top:10px;">📍 पता:</p>
+          <p>
+            श्री श्याम पैलेस, जनता इंटर कॉलेज के पीछे,<br>
+            केवटहिया, बभनान – गोण्डा, उत्तर प्रदेश
+          </p>
+
+          <p style="margin-top:10px;">
+            🏪 अन्य प्रतिष्ठान: बालाजी स्वीट हाउस, विकास वस्त्रालय (बभनान बाजार)
+          </p>
+
+          <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;">
+            <a class="btn-primary" href="https://wa.me/918303615915" target="_blank" rel="noopener noreferrer">WhatsApp Booking</a>
+            <a class="btn-ghost" href="tel:918303615915">Call Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="small-label">Quick Enquiry Form</div>
+        <p style="font-size:0.8rem;color:var(--muted);margin:4px 0 10px;">
+          (यह फॉर्म सिर्फ़ डेमो के लिए है। असली ईमेल भेजने के लिए आपको
+          बैकएंड या थर्ड–पार्टी सर्विस जोड़नी होगी।)
+        </p>
+        <form class="form">
+          <div>
+            <label for="name">आपका नाम</label>
+            <input id="name" type="text" placeholder="अपना नाम लिखें">
+          </div>
+          <div>
+            <label for="phone">मोबाइल नंबर</label>
+            <input id="phone" type="tel" placeholder="10 अंकों का मोबाइल नंबर">
+          </div>
+          <div>
+            <label for="event">कार्यक्रम का प्रकार</label>
+            <input id="event" type="text" placeholder="जैसे: शादी, रिसेप्शन, बर्थ–डे">
+          </div>
+          <div>
+            <label for="date">अनुमानित तारीख</label>
+            <input id="date" type="text" placeholder="दिन / माह / वर्ष">
+          </div>
+          <div>
+            <label for="message">संक्षिप्त विवरण</label>
+            <textarea id="message" placeholder="कितने मेहमान, विशेष आवश्यकताएँ आदि लिखें"></textarea>
+          </div>
+          <button type="button" class="btn-primary">Submit (Demo)</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© <span id="year"></span> Shree Shyam Palace, Babhnan – Gonda. All Rights Reserved.</div>
+  <div class="footer-links">
+    <span>Krishna &amp; Peacock Feather Inspired Venue</span>
+    <span>Made with ♥ in Babhnan</span>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop">↑</button>
+
+<script>
+  // dynamic year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // scroll to top button
+  const scrollTopBtn = document.getElementById("scrollTop");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn.classList.add("visible");
+    } else {
+      scrollTopBtn.classList.remove("visible");
+    }
+  });
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+</body>
+</html>
+
